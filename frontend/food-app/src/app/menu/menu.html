@@ -1,0 +1,10 @@
+<h2>Menu</h2>
+
+<div *ngFor="let f of foods">
+  <h3>{{ f.name }}</h3>
+  <p>{{ f.price }} ₸</p>
+
+  <button (click)="addToCart(f)">
+    Add to cart
+  </button>
+</div>

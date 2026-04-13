@@ -1,2 +1,0 @@
-GET /api/restaurants/
-GET /api/restaurants/:id/foods/

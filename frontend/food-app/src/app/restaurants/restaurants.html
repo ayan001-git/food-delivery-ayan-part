@@ -1,0 +1,8 @@
+<div *ngFor="let r of restaurants">
+    <h3>{{ r.name }}</h3>
+    <p>{{ r.description }}</p>
+  
+    <button (click)="openMenu(r.id)">
+      View menu
+    </button>
+  </div>
