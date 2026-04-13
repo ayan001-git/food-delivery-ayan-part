@@ -1,27 +1,27 @@
 # Food Delivery App
 
-## 👥 Team Members
+## Team Members
 - Bekarys - FullStack
 - Alijan - FullStack
 - Ayan - FullStack
 
-## 📌 Project Description
+## Project Description
 A web application where users can browse restaurants, view food items, and place orders online.
 
-## 🛠 Tech Stack
+## Tech Stack
 - Frontend: Angular
 - Backend: Django REST Framework
 - Auth: JWT Authentication
 
-## 🚀 Features
+## Features
 - User authentication (login/logout)
 - Browse restaurants and food items
 - Add items to cart
 - Place orders
 - Order history
 
-## 📡 API
+## API
 REST API built with Django REST Framework
 
-## 🎯 Goal
+## Goal
 Practice full-stack web development using Angular + Django
