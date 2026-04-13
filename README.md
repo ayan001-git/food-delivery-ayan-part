@@ -1,9 +1,9 @@
 # Food Delivery App
 
 ## 👥 Team Members
-- Bekarys
-- Alijan
-- Ayan
+- Bekarys - FullStack
+- Alijan - FullStack
+- Ayan - FullStack
 
 ## 📌 Project Description
 A web application where users can browse restaurants, view food items, and place orders online.
