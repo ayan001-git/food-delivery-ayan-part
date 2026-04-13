@@ -2,7 +2,7 @@
 
 ## Team Members
 - Bekarys - FullStack
-- Alijan - FullStack
+- Alizhan - FullStack
 - Ayan - FullStack
 
 ## Project Description
