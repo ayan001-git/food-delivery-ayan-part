@@ -78,20 +78,20 @@ class CheckoutAPIView(APIView):
 
     def post(self, request):
         user = get_demo_user()
-        order = Order.objects.filter(user=user, status='pending').first()
+
+        order = Order.objects.filter(
+            user=user,
+            status='pending',
+            items__isnull=False
+        ).distinct().first()
 
         if not order:
-            return Response({"error": "No pending order found"}, status=404)
-
-        if order.items.count() == 0:
             return Response({"error": "Cart is empty"}, status=400)
 
         order.status = 'completed'
         order.save()
 
         return Response({"message": "Order completed"})
-
-
 class OrderHistoryAPIView(generics.ListAPIView):
     serializer_class = OrderSerializer
     permission_classes = [AllowAny]
