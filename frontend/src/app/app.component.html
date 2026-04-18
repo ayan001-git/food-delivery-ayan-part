@@ -1,0 +1,22 @@
+<div class="app-shell">
+  <header class="main-header">
+    <div class="brand-block" routerLink="/order">
+      <div class="logo-circle">FD</div>
+
+      <div class="brand-text">
+        <h1>Food Delivery App</h1>
+        <p class="header-subtitle">Fast, simple and clean ordering experience</p>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <a routerLink="/order" routerLinkActive="active-link">Order</a>
+      <a routerLink="/cart" routerLinkActive="active-link">Cart</a>
+      <a routerLink="/history" routerLinkActive="active-link">Order History</a>
+    </nav>
+  </header>
+
+  <main class="page-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

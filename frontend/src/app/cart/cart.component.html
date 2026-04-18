@@ -1,0 +1,94 @@
+<section class="cart-page">
+  <div class="hero-card">
+    <div>
+      <span class="section-tag">Pending Orders</span>
+      <h2>My Cart</h2>
+      <p>Review selected dishes, manage quantity, select items, and complete your order.</p>
+    </div>
+    <div class="hero-icon">🛒</div>
+  </div>
+
+  <div *ngIf="orders.length === 0" class="empty-card">
+    <div class="empty-emoji">🍽️</div>
+    <h3>Your cart is empty</h3>
+    <p>Add food items on the Order page and they will appear here.</p>
+  </div>
+
+  <div *ngIf="orders.length > 0" class="toolbar-card">
+    <div class="toolbar-left">
+      <button class="toolbar-button secondary" (click)="toggleSelectAll()">
+        {{ areAllItemsSelected() ? 'Clear selection' : 'Select all' }}
+      </button>
+
+      <button class="toolbar-button danger-outline" (click)="deleteSelected()">
+        Delete selected ({{ getSelectedCount() }})
+      </button>
+    </div>
+
+    <button class="toolbar-button danger-soft" (click)="clearCart()">Clear cart</button>
+  </div>
+
+  <div *ngIf="orders.length > 0" class="orders-grid">
+    <div *ngFor="let order of orders" class="order-card">
+      <div class="order-header">
+        <div>
+          <p class="order-label">Order</p>
+          <h3>#{{ order.id }}</h3>
+        </div>
+        <span class="status-pill">{{ order.status }}</span>
+      </div>
+
+      <div class="order-meta">
+        <div class="meta-box">
+          <span class="meta-title">Created at</span>
+          <span class="meta-value">{{ order.created_at }}</span>
+        </div>
+        <div class="meta-box">
+          <span class="meta-title">Total items</span>
+          <span class="meta-value">{{ getTotalItems(order) }}</span>
+        </div>
+        <div class="meta-box">
+          <span class="meta-title">Total price</span>
+          <span class="meta-value">{{ getTotalPrice(order) }} ₸</span>
+        </div>
+      </div>
+
+      <div *ngFor="let item of order.items" class="food-item-card">
+        <div
+          class="select-circle"
+          [class.selected]="isItemSelected(item.id)"
+          (click)="toggleItemSelection(item.id)"
+        >
+          <span *ngIf="isItemSelected(item.id)">✓</span>
+        </div>
+
+        <div class="food-main">
+          <div class="food-avatar">🍗</div>
+          <div class="food-details">
+            <h4>{{ item.food_name }}</h4>
+            <p>Price: {{ item.food_price }} ₸</p>
+          </div>
+        </div>
+
+        <div class="item-actions">
+          <div class="quantity-box">
+            <button class="qty-btn" (click)="decreaseQuantity(item.id)">-</button>
+            <span class="qty-value">{{ item.quantity }}</span>
+            <button class="qty-btn" (click)="increaseQuantity(item.id)">+</button>
+          </div>
+
+          <button class="remove-button" (click)="removeItem(item.id)">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="orders.length > 0" class="checkout-panel">
+    <div>
+      <h3>Ready to order?</h3>
+      <p>Finish your current pending cart and move it to history.</p>
+    </div>
+
+    <button class="checkout-button" (click)="checkout()">Checkout</button>
+  </div>
+</section>

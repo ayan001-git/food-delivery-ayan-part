@@ -1,0 +1,26 @@
+<section class="order-page">
+  <div class="hero-card">
+    <div class="hero-text">
+      <span class="section-tag">Menu</span>
+      <h2>Order Food</h2>
+      <p>Select dishes and add them to your cart.</p>
+    </div>
+
+    <div class="hero-icon">🍔</div>
+  </div>
+
+  <div class="foods-grid">
+    <div *ngFor="let food of foods" class="food-card">
+      <div class="food-top">
+        <div class="food-icon">🍗</div>
+        <span class="food-badge">Popular</span>
+      </div>
+
+      <h3>{{ food.name }}</h3>
+      <p class="food-description">Fresh, tasty and ready to order in one click.</p>
+      <p class="price">{{ food.price }} ₸</p>
+
+      <button class="add-btn" (click)="addToCart(food.id)">Add to cart</button>
+    </div>
+  </div>
+</section>
